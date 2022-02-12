@@ -1,34 +1,35 @@
-// swift-tools-version:5.5
+// swift-tools-version: 5.5
 
 import PackageDescription
 
 let package = Package(
     name: "Nitfol",
     defaultLocalization: "en",
-    platforms: [
-        .iOS(.v13),
-        .macOS(.v11),
-        .tvOS(.v13),
-        .watchOS(.v5),
-    ],
+    platforms: [.macOS(.v12)],
     products: [
         .library(
             name: "Nitfol",
             targets: ["Nitfol"]
         ),
     ],
-    dependencies: [],
+    dependencies: [
+        .package(url: "https://github.com/JohnSundell/Files", from: "4.0.0")
+    ],
     targets: [
         .target(
             name: "Nitfol",
             dependencies: [],
             resources: [
-                .process("Nitfol.mlmodelc"),
+                .process("Resources"),
             ]
         ),
         .testTarget(
             name: "NitfolTests",
             dependencies: ["Nitfol"]
+        ),
+        .executableTarget(
+            name: "gloth",
+            dependencies: ["Files"]
         ),
     ]
 )

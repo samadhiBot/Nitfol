@@ -22,7 +22,7 @@ public struct Nitfol {
 
     public init() throws {
         let model = try NLModel(contentsOf: Bundle.module.url(
-            forResource: "Nitfol",
+            forResource: "Gloth",
             withExtension: "mlmodelc"
         )!)
         tagger = NLTagger(tagSchemes: [tagScheme])
